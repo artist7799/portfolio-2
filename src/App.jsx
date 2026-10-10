@@ -50,7 +50,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#070709] text-gray-100 font-['Plus_Jakarta_Sans'] selection:bg-red-600/40 selection:text-white">
+    <div className="min-h-screen bg-[#060609] text-gray-100 font-['Plus_Jakarta_Sans'] selection:bg-violet-600/40 selection:text-white">
       
       {/* Navigation Header */}
       <Navbar isAudioMuted={isAudioMuted} toggleAudio={toggleAudio} />

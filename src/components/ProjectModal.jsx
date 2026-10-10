@@ -57,23 +57,23 @@ export default function ProjectModal({ project, onClose }) {
       <div className="fixed inset-0" onClick={onClose}></div>
 
       {/* Modal Container */}
-      <div className="relative w-full max-w-5xl bg-[#0e0e14] rounded-2xl border border-white/15 shadow-2xl shadow-black overflow-hidden z-10 my-auto">
+      <div className="relative w-full max-w-5xl bg-[#0b0914] rounded-2xl border border-violet-500/25 shadow-2xl shadow-violet-950/40 overflow-hidden z-10 my-auto">
         
         {/* Modal Header Bar */}
-        <div className="bg-[#14141c] px-6 py-4 flex items-center justify-between border-b border-white/10">
+        <div className="bg-[#120e24] px-6 py-4 flex items-center justify-between border-b border-violet-500/20">
           <div className="flex items-center gap-3">
-            <span className="w-3 h-3 rounded-full bg-red-500 animate-pulse"></span>
+            <span className="w-3 h-3 rounded-full bg-violet-400 animate-pulse shadow-lg shadow-violet-500/50"></span>
             <h3 className="text-lg font-bold text-white font-['Outfit'] uppercase tracking-wider">
               {project.title}
             </h3>
-            <span className="px-2.5 py-0.5 rounded bg-red-600/20 text-red-400 text-xs font-mono border border-red-500/30">
+            <span className="px-2.5 py-0.5 rounded bg-violet-500/15 text-violet-300 text-xs font-mono border border-violet-500/30">
               {project.category || 'SHOWREEL'}
             </span>
           </div>
 
           <button
             onClick={onClose}
-            className="p-2 rounded-full bg-white/5 hover:bg-white/15 text-gray-400 hover:text-white transition-colors"
+            className="p-2 rounded-full bg-white/5 hover:bg-violet-500/20 text-gray-400 hover:text-white transition-colors"
             aria-label="Close Project Modal"
           >
             <X className="w-5 h-5" />
@@ -85,7 +85,7 @@ export default function ProjectModal({ project, onClose }) {
           
           {/* Left Column: Large Video Player Area (2 cols) */}
           <div className="lg:col-span-2 flex flex-col gap-4">
-            <div className="relative aspect-video bg-black rounded-xl overflow-hidden border border-white/10 shadow-2xl group">
+            <div className="relative aspect-video bg-black rounded-xl overflow-hidden border border-violet-500/20 shadow-2xl shadow-violet-950/30 group">
               
               {/* Render Local Video Player or Embed Iframe */}
               {activeVideoUrl && !isEmbed ? (
@@ -109,12 +109,12 @@ export default function ProjectModal({ project, onClose }) {
                   {!isPlaying && (
                     <div 
                       onClick={togglePlay}
-                      className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center cursor-pointer group-hover:bg-black/30 transition-all"
+                      className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center cursor-pointer group-hover:bg-black/40 transition-all"
                     >
-                      <button className="w-20 h-20 rounded-full bg-red-600/90 text-white flex items-center justify-center shadow-2xl shadow-red-600/60 hover:scale-110 transition-transform border-2 border-white/30 glow-box-red">
+                      <button className="w-20 h-20 rounded-full bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white flex items-center justify-center shadow-2xl shadow-violet-600/60 hover:scale-110 transition-transform border border-white/30 glow-box-violet">
                         <Play className="w-9 h-9 fill-white translate-x-1" />
                       </button>
-                      <p className="mt-3 text-xs font-mono text-white font-bold bg-black/70 px-4 py-1.5 rounded-full border border-white/20">
+                      <p className="mt-3 text-xs font-mono text-white font-bold bg-[#140e2b]/80 px-4 py-1.5 rounded-full border border-violet-500/30">
                         CLICK TO PLAY VIDEO WITH SOUND
                       </p>
                     </div>
@@ -137,7 +137,7 @@ export default function ProjectModal({ project, onClose }) {
                   />
                   <div className="absolute inset-0 bg-black/60 flex items-center justify-center p-6 text-center">
                     <p className="text-sm font-mono text-gray-300">
-                      Add your video file in <code className="text-red-400">public/assets/</code> and update <code className="text-red-400">portfolioData.js</code>!
+                      Add your video file in <code className="text-violet-400">public/assets/</code> and update <code className="text-violet-400">portfolioData.js</code>!
                     </p>
                   </div>
                 </div>
@@ -147,11 +147,11 @@ export default function ProjectModal({ project, onClose }) {
 
             {/* Video Controls Toolbar */}
             {activeVideoUrl && !isEmbed && (
-              <div className="flex items-center justify-between bg-white/5 p-3 rounded-xl border border-white/10 text-xs font-mono">
+              <div className="flex items-center justify-between bg-white/[0.04] p-3 rounded-xl border border-violet-500/15 text-xs font-mono">
                 <div className="flex items-center gap-3">
                   <button
                     onClick={togglePlay}
-                    className="px-3 py-1.5 rounded bg-red-600 hover:bg-red-500 text-white font-bold flex items-center gap-1.5 transition-colors"
+                    className="px-3.5 py-1.5 rounded-lg bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-500 hover:to-purple-500 text-white font-bold flex items-center gap-1.5 transition-all shadow-md shadow-violet-600/30"
                   >
                     {isPlaying ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5 fill-current" />}
                     <span>{isPlaying ? "Pause" : "Play Video"}</span>
@@ -159,23 +159,23 @@ export default function ProjectModal({ project, onClose }) {
 
                   <button
                     onClick={toggleMute}
-                    className="px-3 py-1.5 rounded bg-white/10 hover:bg-white/20 text-gray-300 hover:text-white flex items-center gap-1.5 transition-colors"
+                    className="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-gray-300 hover:text-white flex items-center gap-1.5 transition-colors border border-white/5"
                   >
-                    {isMuted ? <VolumeX className="w-3.5 h-3.5 text-red-400" /> : <Volume2 className="w-3.5 h-3.5 text-emerald-400" />}
+                    {isMuted ? <VolumeX className="w-3.5 h-3.5 text-violet-400" /> : <Volume2 className="w-3.5 h-3.5 text-cyan-400" />}
                     <span>{isMuted ? "Unmute Audio" : "Audio On"}</span>
                   </button>
                 </div>
 
                 <span className="text-gray-400 text-[11px] hidden sm:inline-block">
-                  Playing: <span className="text-red-400 font-bold">{activeVideoUrl}</span>
+                  Playing: <span className="text-violet-400 font-bold">{activeVideoUrl}</span>
                 </span>
               </div>
             )}
 
             {/* Project Full Description */}
-            <div className="glass-panel p-5 rounded-xl border border-white/10">
+            <div className="glass-panel p-5 rounded-xl border border-violet-500/15">
               <h4 className="text-sm font-bold text-white uppercase font-mono mb-2 flex items-center gap-2">
-                <Film className="w-4 h-4 text-red-400" />
+                <Film className="w-4 h-4 text-violet-400" />
                 <span>PROJECT BREAKDOWN & SCOPE</span>
               </h4>
               <p className="text-gray-300 text-sm leading-relaxed">
@@ -188,8 +188,8 @@ export default function ProjectModal({ project, onClose }) {
           <div className="flex flex-col gap-6">
             
             {/* Quick Specs */}
-            <div className="glass-panel p-5 rounded-xl border border-white/10 space-y-3">
-              <h4 className="text-xs font-mono uppercase text-gray-400 tracking-wider border-b border-white/10 pb-2">
+            <div className="glass-panel p-5 rounded-xl border border-violet-500/15 space-y-3">
+              <h4 className="text-xs font-mono uppercase text-violet-300 tracking-wider border-b border-violet-500/20 pb-2">
                 PROJECT METADATA
               </h4>
               <div className="flex justify-between text-xs">
@@ -206,20 +206,20 @@ export default function ProjectModal({ project, onClose }) {
               </div>
               <div className="flex justify-between text-xs">
                 <span className="text-gray-400">Client / Brand:</span>
-                <span className="text-red-400 font-bold">{project.clientType}</span>
+                <span className="text-violet-400 font-bold">{project.clientType}</span>
               </div>
             </div>
 
             {/* Editing Techniques Used */}
-            <div className="glass-panel p-5 rounded-xl border border-white/10">
-              <h4 className="text-xs font-mono uppercase text-red-400 tracking-wider mb-3 flex items-center gap-2">
-                <Sliders className="w-4 h-4 text-red-400" />
+            <div className="glass-panel p-5 rounded-xl border border-violet-500/15">
+              <h4 className="text-xs font-mono uppercase text-violet-400 tracking-wider mb-3 flex items-center gap-2">
+                <Sliders className="w-4 h-4 text-violet-400" />
                 <span>APPLIED TECHNIQUES</span>
               </h4>
               <ul className="space-y-2">
                 {(project.editingTechniques || ["Kinetic Cuts", "Pacing", "Color Grading", "Sound Design"]).map((tech, idx) => (
                   <li key={idx} className="flex items-center gap-2 text-xs text-gray-200">
-                    <Check className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                    <Check className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
                     <span>{tech}</span>
                   </li>
                 ))}
@@ -227,16 +227,16 @@ export default function ProjectModal({ project, onClose }) {
             </div>
 
             {/* Software Used */}
-            <div className="glass-panel p-5 rounded-xl border border-white/10">
-              <h4 className="text-xs font-mono uppercase text-amber-400 tracking-wider mb-3 flex items-center gap-2">
-                <Cpu className="w-4 h-4 text-amber-400" />
+            <div className="glass-panel p-5 rounded-xl border border-violet-500/15">
+              <h4 className="text-xs font-mono uppercase text-cyan-400 tracking-wider mb-3 flex items-center gap-2">
+                <Cpu className="w-4 h-4 text-cyan-400" />
                 <span>SOFTWARE SUITE</span>
               </h4>
               <div className="flex flex-wrap gap-2">
                 {(project.softwareUsed || ["Adobe Premiere Pro", "DaVinci Resolve", "CapCut"]).map((sw, idx) => (
                   <span
                     key={idx}
-                    className="px-3 py-1.5 rounded-lg bg-red-600/15 border border-red-500/30 text-xs font-mono font-bold text-red-300"
+                    className="px-3 py-1.5 rounded-lg bg-violet-600/15 border border-violet-500/30 text-xs font-mono font-bold text-violet-300 shadow-sm"
                   >
                     {sw}
                   </span>

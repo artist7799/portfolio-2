@@ -36,8 +36,8 @@ export default function ContactSection() {
     setLoading(true);
 
     try {
-      // Send form message to yaswitajanjanam@gmail.com via FormSubmit endpoint
-      await fetch("https://formsubmit.co/ajax/yaswitajanjanam@gmail.com", {
+      // Send form message via FormSubmit endpoint
+      await fetch(`https://formsubmit.co/ajax/${personal.email}`, {
         method: "POST",
         headers: { 
           'Content-Type': 'application/json',
@@ -53,7 +53,7 @@ export default function ContactSection() {
       });
     } catch (err) {
       console.log("FormSubmit API trigger:", err);
-      const mailtoUrl = `mailto:yaswitajanjanam@gmail.com?subject=Video Project Inquiry from ${encodeURIComponent(formData.name)}&body=${encodeURIComponent(
+      const mailtoUrl = `mailto:${personal.email}?subject=Video Project Inquiry from ${encodeURIComponent(formData.name)}&body=${encodeURIComponent(
         `Name: ${formData.name}\nEmail: ${formData.email}\nCategory: ${formData.projectType}\n\nMessage:\n${formData.message}`
       )}`;
       window.open(mailtoUrl, '_blank');
@@ -72,21 +72,21 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-24 relative bg-[#07070a] border-t border-white/5">
+    <section id="contact" className="py-24 relative bg-[#06060e] border-t border-violet-500/5">
       
       {/* Background Accent Glow */}
-      <div className="absolute top-1/2 right-1/4 w-96 h-96 bg-red-600/10 rounded-full blur-[140px] pointer-events-none"></div>
+      <div className="absolute top-1/2 right-1/4 w-96 h-96 bg-violet-600/10 rounded-full blur-[140px] pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-red-500/10 border border-red-500/20 text-red-400 text-xs font-mono font-bold tracking-widest uppercase mb-3">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-violet-500/10 border border-violet-500/20 text-violet-400 text-xs font-mono font-bold tracking-widest uppercase mb-3">
             <Send className="w-3.5 h-3.5" />
             <span>GET IN TOUCH</span>
           </div>
           <h2 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight font-['Outfit'] uppercase">
-            LET'S WORK <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-rose-400 to-amber-400">TOGETHER</span>
+            LET'S WORK <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-500 via-purple-400 to-fuchsia-400">TOGETHER</span>
           </h2>
           <p className="text-gray-400 text-base mt-2">
             Have a video editing project, Instagram reel campaign, or commercial shoot in mind? Send a message below or connect via email.
@@ -109,12 +109,12 @@ export default function ContactSection() {
                 href={`mailto:${personal.email}`}
                 className="flex items-center gap-4 p-4 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all group"
               >
-                <div className="w-12 h-12 rounded-xl bg-red-600/20 text-red-500 flex items-center justify-center group-hover:scale-110 transition-transform">
+                <div className="w-12 h-12 rounded-xl bg-violet-600/20 text-violet-500 flex items-center justify-center group-hover:scale-110 transition-transform">
                   <Mail className="w-5 h-5" />
                 </div>
                 <div>
                   <p className="text-[11px] font-mono text-gray-400 uppercase">EMAIL ADDRESS</p>
-                  <p className="text-sm font-bold text-white group-hover:text-red-400 transition-colors font-mono">
+                  <p className="text-sm font-bold text-white group-hover:text-violet-400 transition-colors font-mono">
                     {personal.email}
                   </p>
                 </div>
@@ -162,7 +162,7 @@ export default function ContactSection() {
                     Message Sent Successfully!
                   </h3>
                   <p className="text-gray-300 text-sm max-w-md mx-auto">
-                    Thank you for reaching out, <strong className="text-white">{formData.name}</strong>! Your message has been sent directly to <span className="text-red-400 font-mono font-bold">yaswitajanjanam@gmail.com</span> and I will get back to you shortly!
+                    Thank you for reaching out, <strong className="text-white">{formData.name}</strong>! Your message has been sent directly to <span className="text-violet-400 font-mono font-bold">{personal.email}</span> and I will get back to you shortly!
                   </p>
                   <button
                     onClick={() => {
@@ -183,7 +183,7 @@ export default function ContactSection() {
                   {/* Name Input */}
                   <div>
                     <label className="block text-xs font-mono uppercase text-gray-300 mb-2">
-                      YOUR NAME <span className="text-red-500">*</span>
+                      YOUR NAME <span className="text-violet-500">*</span>
                     </label>
                     <input
                       type="text"
@@ -191,14 +191,14 @@ export default function ContactSection() {
                       placeholder="e.g. Alex Rivera"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/15 text-white placeholder-gray-500 text-sm focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500 transition-all font-mono"
+                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/15 text-white placeholder-gray-500 text-sm focus:outline-none focus:border-violet-500 focus:ring-1 focus:ring-violet-500 transition-all font-mono"
                     />
                   </div>
 
                   {/* Email Input */}
                   <div>
                     <label className="block text-xs font-mono uppercase text-gray-300 mb-2">
-                      YOUR EMAIL <span className="text-red-500">*</span>
+                      YOUR EMAIL <span className="text-violet-500">*</span>
                     </label>
                     <input
                       type="email"
@@ -206,7 +206,7 @@ export default function ContactSection() {
                       placeholder="e.g. alex@example.com"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/15 text-white placeholder-gray-500 text-sm focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500 transition-all font-mono"
+                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/15 text-white placeholder-gray-500 text-sm focus:outline-none focus:border-violet-500 focus:ring-1 focus:ring-violet-500 transition-all font-mono"
                     />
                   </div>
 
@@ -218,7 +218,7 @@ export default function ContactSection() {
                     <select
                       value={formData.projectType}
                       onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-[#0e0e14] border border-white/15 text-white text-sm focus:outline-none focus:border-red-500 transition-all font-mono"
+                      className="w-full px-4 py-3 rounded-xl bg-[#0e0e14] border border-white/15 text-white text-sm focus:outline-none focus:border-violet-500 transition-all font-mono"
                     >
                       <option value="Reels / Shorts">Instagram Reel / YouTube Short</option>
                       <option value="Cinematic Travel / Vlog">Cinematic Travel / Vlog Edit</option>
@@ -231,7 +231,7 @@ export default function ContactSection() {
                   {/* Message Input */}
                   <div>
                     <label className="block text-xs font-mono uppercase text-gray-300 mb-2">
-                      MESSAGE DETAILS <span className="text-red-500">*</span>
+                      MESSAGE DETAILS <span className="text-violet-500">*</span>
                     </label>
                     <textarea
                       required
@@ -239,7 +239,7 @@ export default function ContactSection() {
                       placeholder="Tell me about your footage, deadlines, platforms, or editing style preferences..."
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/15 text-white placeholder-gray-500 text-sm focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500 transition-all font-mono"
+                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/15 text-white placeholder-gray-500 text-sm focus:outline-none focus:border-violet-500 focus:ring-1 focus:ring-violet-500 transition-all font-mono"
                     ></textarea>
                   </div>
 
@@ -247,7 +247,7 @@ export default function ContactSection() {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="w-full py-4 rounded-xl bg-gradient-to-r from-red-600 via-rose-600 to-red-700 text-white font-bold text-sm tracking-wider uppercase shadow-xl shadow-red-600/30 hover:shadow-red-600/50 hover:scale-[1.01] active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 border border-red-500/40"
+                    className="w-full py-4 rounded-xl bg-gradient-to-r from-violet-600 via-purple-600 to-fuchsia-600 text-white font-bold text-sm tracking-wider uppercase shadow-xl shadow-violet-600/30 hover:shadow-violet-600/50 hover:scale-[1.01] active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 border border-violet-500/40"
                   >
                     {loading ? (
                       <span className="flex items-center gap-2 font-mono">
@@ -274,3 +274,4 @@ export default function ContactSection() {
     </section>
   );
 }
+

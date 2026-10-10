@@ -1,5 +1,5 @@
 /**
- * Janjanam Yaswita - Video Editor Portfolio Configuration
+ * Jaikrishna Janjanam - Video Editor Portfolio Configuration
  * 
  * Edit this file to customize projects, video links, social media URLs,
  * and portfolio content.
@@ -7,12 +7,12 @@
 
 export const PORTFOLIO_DATA = {
   personal: {
-    name: "Yaswitha Janjanam",
+    name: "Jaikrishna Janjanam",
     title: "VIDEO EDITOR",
     tagline: "Turning raw footage into engaging visual stories.",
     bio: "I am a passionate video editor focused on creating engaging short-form content, cinematic edits, promotional videos and social media content. I enjoy transforming raw footage into polished visual stories using creative editing, pacing, color and sound.",
-    email: "yaswitajanjanam@gmail.com",
-    linkedin: "https://www.linkedin.com/in/yaswita-janjanam-795482213",
+    email: "jaikrishnajanjanam@gmail.com",
+    linkedin: "https://www.linkedin.com/in/jaikrishna-janjanam",
     location: "Hyderabad, India / Remote Worldwide",
     availability: "Available for Freelance & Full-time Projects",
   },
@@ -27,7 +27,7 @@ export const PORTFOLIO_DATA = {
     aspectRatio: "16:9",
     resolution: "4K UHD 60FPS",
     clientType: "Showreel Highlights",
-    shortDescription: "Featured showcase of Janjanam Yaswita's video editing portfolio featuring short-form reels, cinematic edits, beat-synced cuts, and color grading.",
+    shortDescription: "Featured showcase of Jaikrishna Janjanam's video editing portfolio featuring short-form reels, cinematic edits, beat-synced cuts, and color grading.",
     editingTechniques: [
       "Dynamic Speed Ramping",
       "Teal & Orange Color Grade",
